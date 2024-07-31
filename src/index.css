@@ -420,7 +420,7 @@
 .Contact-Heading-Style::after{
   content: ''; 
   position: absolute; 
-  top: 595%;
+  top: 586%;
   bottom: -10px; 
   left: 45%;  
   width: 13%; 
