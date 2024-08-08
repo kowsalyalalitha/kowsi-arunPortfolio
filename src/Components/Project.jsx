@@ -47,10 +47,10 @@ function Project() {
       link: 'https://my-engineering-proj.netlify.app'  // Add your project link here
     },
     {
-      title: 'Html, Css, Javascript',
-      description: 'This Is Only Use For Html,Css, Javascript project.',
-      image: 'JsProject.jpeg',
-      link: 'file:///E:/JS%20Practice%20For%20Riyas/Calculater%20Proj/calculater.html'  // Add your project link here
+      title: 'Html, Css, Javascript and React.js',
+      description: 'This Is Only Use For Html,Css, Javascript and React.jc project.',
+      image: 'PortfolioProj.jpeg',
+      link: 'https://porfolio-create.netlify.app'  // Add your project link here
     },
     {
       title: 'Html, Css, Javascript, and React.js',
