@@ -1,60 +1,91 @@
-import React from 'react';
+// import React, { useState } from 'react';
+// import MyResumeImgs from '../assets/Images/My-Pic2.jpeg';
+
+// function Navbars() {
+//   const [menuOpen, setMenuOpen] = useState(false);
+
+//   const toggleMenu = () => {
+//     setMenuOpen(!menuOpen);
+//   };
+
+//   const handleScrollToSection = (sectionId) => (event) => {
+//     event.preventDefault();
+//     const section = document.getElementById(sectionId);
+//     if (section) {
+//       section.scrollIntoView({ behavior: 'smooth' });
+//     }
+//     setMenuOpen(false);
+//   };
+
+//   return (
+//     <div className='Navbars-Css'>
+//       <nav className='navbar'>
+//         <div className="hamburger" onClick={toggleMenu}>
+//           <span className="bar"></span>
+//           <span className="bar"></span>
+//           <span className="bar"></span>
+//         </div>
+//         <ul className={`nav-menu ${menuOpen ? 'open' : ''}`}>
+//           <li><a href="#" onClick={handleScrollToSection('top')}>Home</a></li>
+//           <li><a href="#" onClick={handleScrollToSection('about-section')}>About</a></li>
+//           <li><a href="#" onClick={handleScrollToSection('skills-section')}>Skills</a></li>
+//           <li><a href="#" onClick={handleScrollToSection('projects-section')}>Projects</a></li>
+//           <li><a href="#" onClick={handleScrollToSection('contact-section')}>Contact</a></li>
+//           <li><img src={MyResumeImgs} className='resume-Css' alt="resume-pic" onClick={handleScrollToSection('about-section')} /></li>
+//         </ul>
+//       </nav>
+//       <div className='Heading-Type'>
+//         <h2 className='Myworld-style'>WELCOME TO MY WORLD</h2>
+//       </div>
+//     </div>
+//   );
+// }
+
+// export default Navbars;
+
+
+import React, { useState } from 'react';
 import MyResumeImgs from '../assets/Images/My-Pic2.jpeg';
 
 function Navbars() {
+  const [menuOpen, setMenuOpen] = useState(false);
 
-  const handleScrollToAbout = (event) => {
-    event.preventDefault(); // Prevent default anchor behavior
-    const aboutSection = document.getElementById('about-section');
-    if (aboutSection) {
-      aboutSection.scrollIntoView({ behavior: 'smooth' });
-    }
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
   };
 
-  const handleScrollToSkills = (event) => {
-    event.preventDefault(); // Prevent default anchor behavior
-    const skillsSection = document.getElementById('skills-section');
-    if (skillsSection) {
-      skillsSection.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
-  const handleScrollToProjects = (event) => {
+  const handleScrollToSection = (sectionId) => (event) => {
     event.preventDefault();
-    const projectsSection = document.getElementById('projects-section');
-    if (projectsSection) {
-      projectsSection.scrollIntoView({ behavior: 'smooth' });
+    if (sectionId === 'top') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      const section = document.getElementById(sectionId);
+      if (section) {
+        section.scrollIntoView({ behavior: 'smooth' });
+      }
     }
-  };
-
-  const handleScrollToContact = (event) => {
-    event.preventDefault(); // Prevent default anchor behavior
-    const contactSection = document.getElementById('contact-section');
-    if (contactSection) {
-      contactSection.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-  
-  const handleScrollToTop = (event) => {
-    event.preventDefault(); // Prevent default anchor behavior
-    const scrollPosition = 0;
-    window.scrollTo({ top: scrollPosition, behavior: 'smooth' });
+    setMenuOpen(false);
   };
 
   return (
     <div className='Navbars-Css'>
       <nav className='navbar'>
-        <ul className="nav-menu">
-          <li><a href="#" onClick={handleScrollToTop}>Home</a></li>
-          <li><a href="#" onClick={handleScrollToAbout}>About</a></li>
-          <li><a href="#" onClick={handleScrollToSkills}>Skills</a></li>
-          <li><a href="#" onClick={handleScrollToProjects}>Projects</a></li>
-          <li><a href="#" onClick={handleScrollToContact}>Contact</a></li>
-          <li><img src={MyResumeImgs} className='resume-Css' alt="resume-pic" onClick={handleScrollToAbout} /></li>
+        <div className="hamburger" onClick={toggleMenu}>
+          <span className="bar"></span>
+          <span className="bar"></span>
+          <span className="bar"></span>
+        </div>
+        <ul className={`nav-menu ${menuOpen ? 'open' : ''}`}>
+          <li><a href="#" onClick={handleScrollToSection('top')}>Home</a></li>
+          <li><a href="#" onClick={handleScrollToSection('about-section')}>About</a></li>
+          <li><a href="#" onClick={handleScrollToSection('skills-section')}>Skills</a></li>
+          <li><a href="#" onClick={handleScrollToSection('projects-section')}>Projects</a></li>
+          <li><a href="#" onClick={handleScrollToSection('contact-section')}>Contact</a></li>
+          <li><img src={MyResumeImgs} className='resume-Css' alt="resume-pic" onClick={handleScrollToSection('about-section')} /></li>
         </ul>
       </nav>
       <div className='Heading-Type'>
-        <h2>WELCOME TO MY WORLD</h2>
+        <h2 className='Myworld-style'>WELCOME TO MY WORLD</h2>
       </div>
     </div>
   );
